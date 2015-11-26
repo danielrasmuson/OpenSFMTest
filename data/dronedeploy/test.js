@@ -1,4 +1,4 @@
-var mesh = require('./meshConverter');
+var mesh = require('./mesh-model/mesh-model-generator.js');
 var file = require('./util/file.js');
 
 var construction = mesh.addConstruction();
