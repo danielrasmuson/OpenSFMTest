@@ -9,10 +9,10 @@ xcode
 .cache
 
 # Ignore the data folder, but not the berlin example.
-data/*
-data/berlin/*
-!data/berlin
-!data/berlin/config.yaml
-!data/berlin/images
+# data/*
+# data/berlin/*
+# !data/berlin
+# !data/berlin/config.yaml
+# !data/berlin/images
 
 eval

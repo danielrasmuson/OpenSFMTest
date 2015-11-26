@@ -1,0 +1,17 @@
+{
+    "orientation": 1, 
+    "height": 3000, 
+    "focal_prior": 0.5555555555555556, 
+    "capture_time": 1438441509.0, 
+    "k2": 0.0, 
+    "make": "DJI", 
+    "width": 4000, 
+    "k1": 0.0, 
+    "camera": "dji fc300x", 
+    "model": "FC300X", 
+    "gps": {
+        "latitude": 38.42618422222222, 
+        "altitude": 91.2, 
+        "longitude": -123.11310952777777
+    }
+}
