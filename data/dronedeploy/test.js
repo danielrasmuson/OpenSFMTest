@@ -1,7 +1,8 @@
-var mesh = require('./mesh-model/mesh-model-generator.js');
+var Mesh = require('./mesh-model/mesh-model-generator.js');
 var file = require('./util/file.js');
 
-var construction = mesh.addConstruction();
+var mesh = new Mesh();
+var construction = mesh.addReconstruction();
 var camera = construction.addCamera("dji fc300x", {
   focal: 0.5652250151571309,
   focal_prior: 0.5555555555555556,
