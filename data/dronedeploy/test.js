@@ -1,4 +1,4 @@
-var Mesh = require('./mesh-model/mesh-model-generator.js');
+var Mesh = require('./mesh-model/mesh.js');
 var file = require('./util/file.js');
 
 var mesh = new Mesh();
