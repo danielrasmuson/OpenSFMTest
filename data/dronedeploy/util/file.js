@@ -8,5 +8,14 @@ module.exports = {
         success(data);
       }
     });
+  },
+  write: function(path, body, success, error){
+    fs.writeFile(path, body, function(err){
+      if (err){
+        error(err);
+      } else{
+        success();
+      }
+    });
   }
 }
