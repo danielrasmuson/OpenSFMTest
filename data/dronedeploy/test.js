@@ -1,7 +1,8 @@
 var mesh = require('./meshConverter');
 var file = require('./util/file.js');
 
-var camera = mesh.addCamera("dji fc300x", {
+var construction = mesh.addConstruction();
+var camera = construction.addCamera("dji fc300x", {
   focal: 0.5652250151571309,
   focal_prior: 0.5555555555555556,
   height: 3000,
