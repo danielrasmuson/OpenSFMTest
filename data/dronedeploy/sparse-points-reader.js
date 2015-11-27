@@ -4,12 +4,12 @@ var file = require('./util/file.js');
 
 function translateRow(cells){
   return {
-    lat: cells[0],
-    lon: cells[1],
-    alt: cells[2],
-    r: cells[3],
-    g: cells[4],
-    b: cells[5]
+    lat: parseFloat(cells[0]),
+    lon: parseFloat(cells[1]),
+    alt: parseFloat(cells[2]),
+    r: parseFloat(cells[3]),
+    g: parseFloat(cells[4]),
+    b: parseFloat(cells[5])
   };
 }
 

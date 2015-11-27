@@ -37,15 +37,16 @@ shots.forEach(function(shot){
     camera.addShot(shot.name)
       .setGPSPosition(shot.lat, shot.lon, shot.alt)
       .setRotation(shot.yaw, shot.pitch, shot.roll)
-      .setTranslation(shot.x, shot.y, shot.z)
+      .setTranslation(shot.x, shot.y, shot.z);
   });
 
 points.forEach(function(point){
     construction.addPoint()
       .setColor(point.r, point.g, point.b)
       .setCoordinates(point.lat, point.lon, point.alt)
+      .setReprojectionError(0.00022505052104047338);
   });
 
 Rx.Observable.zip([shots, points]).forEach(function(){}, function(){}, function(){
   writeMeshToFile(mesh.generate());
-})
+});

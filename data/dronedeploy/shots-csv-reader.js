@@ -4,15 +4,15 @@ var Rx = require('rx');
 function translateRow(shotData){
   return {
     name: shotData[0],
-    lat: shotData[1],
-    lon: shotData[2],
-    alt: shotData[3],
-    yaw: shotData[18],
-    pitch: shotData[19],
-    roll: shotData[20],
-    x: shotData[15],
-    y: shotData[16],
-    z: shotData[17]
+    lat: parseFloat(shotData[1]),
+    lon: parseFloat(shotData[2]),
+    alt: parseFloat(shotData[3]),
+    yaw: parseFloat(shotData[18]),
+    pitch: parseFloat(shotData[19]),
+    roll: parseFloat(shotData[20]),
+    x: parseFloat(shotData[15]),
+    y: parseFloat(shotData[16]),
+    z: parseFloat(shotData[17])
   }
 }
 
