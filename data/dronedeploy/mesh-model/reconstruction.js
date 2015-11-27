@@ -1,30 +1,18 @@
 var addCamera = require('./camera');
+var addPoint = require('./point');
 
 
 function addReconstruction(){
   var me = this;
   me.reconstruction = {
     "cameras": {},
-    "points": {
-      "11542": {
-        "color": [
-          232.0,
-          216.0,
-          182.0
-        ],
-        "coordinates": [
-          41.058879369581156,
-          7.609415306422682,
-          -81.24448431236529
-        ],
-        "reprojection_error": 0.00031525759339263103
-      }
-    },
+    "points": {},
     "shots": {}
   };
   me.reconstructions.push(me.reconstruction);
   return {
-    addCamera: addCamera.bind(me)
+    addCamera: addCamera.bind(me),
+    addPoint: addPoint.bind(me)
   }
 }
 
