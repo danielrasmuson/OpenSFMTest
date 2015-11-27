@@ -30,6 +30,7 @@ function addShot(shotName){
   };
 
   // todo what variables are needed in set translation?
+  // maybe x, y, z
   me.setTranslation = function setTranslation(unknown1, unknown2, unknown3){
     me.shot.translation = [unknown1, unknown2, unknown3];
     return me;

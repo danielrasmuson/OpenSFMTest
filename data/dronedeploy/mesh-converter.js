@@ -22,6 +22,9 @@ var shotCSVKey = {
   yaw: 18,
   pitch: 19,
   roll: 20,
+  x: 15,
+  y: 16,
+  z: 17,
 }
 
 function addShots(done){
@@ -33,7 +36,7 @@ function addShots(done){
       camera.addShot(cells[shotCSVKey.imageName])
         .setGPSPosition(cells[shotCSVKey.lat], cells[shotCSVKey.lon], cells[shotCSVKey.alt])
         .setRotation(cells[shotCSVKey.yaw], cells[shotCSVKey.pitch], cells[shotCSVKey.roll])
-
+        .setTranslation(cells[shotCSVKey.x], cells[shotCSVKey.y], cells[shotCSVKey.z])
     })
     done();
   });
@@ -42,6 +45,16 @@ function addShots(done){
 addShots(function(){
 
   var meshJSON = mesh.generate();
-  console.log(JSON.stringify(meshJSON));
+  file.write(
+    '/Users/danielrasmuson/Documents/Code/DroneDeploy/OpenSfM/data/dronedeploy/reconstruction.meshed.json',
+    JSON.stringify(meshJSON),
+    function(){
+      console.log('success')
+    }, 
+    function(){
+      console.log('error') 
+    }
+  );
+  
 })
 
