@@ -1,4 +1,5 @@
 var file = require('./util/file.js');
+var Rx = require('rx');
 
 function translateRow(shotData){
   return {
@@ -16,22 +17,17 @@ function translateRow(shotData){
 }
 
 function getShots(){
-  var me = this;
-  file.read(__dirname+'/shots.csv', function(data){
-    data.split('\n').forEach(function(row){
-      var cells = row.split(',');
-      if (cells.length === 1) return; // blank line
-      me.forEach(translateRow(cells));
-    })
-    me.done();
+  return Rx.Observable.create(function(observer){
+    var me = this;
+    file.read(__dirname+'/shots.csv', function(data){
+      data.split('\n').forEach(function(row){
+        var cells = row.split(',');
+        if (cells.length === 1) return; // blank line
+        observer.onNext(translateRow(cells))
+      })
+      observer.onCompleted();
+    });
   });
-
-  return {
-    forEach: function(callback, error, done){
-      me.forEach = callback;
-      me.done = done;
-    }
-  }
 }
 
 module.exports = getShots;

@@ -36,6 +36,4 @@ getShots()
       .setTranslation(shot.x, shot.y, shot.z)
   }, function(){}, function(){
     writeMeshToFile(mesh.generate());
-  })
-
-
+  });
