@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var Mesh = require('./mesh-model/mesh.js');
 var file = require('./util/file.js');
 
@@ -21,9 +22,17 @@ shot.setRotation(-2.704549657889575, -1.5139182396282014, -0.01336689867768531);
 shot.setTranslation(21.696583947378134, -74.66030401921762, -1.4777540089824655);
 
 var point = construction.addPoint();
-point.setColor(232.0, 216.0, 182.0)
-point.setCoordinates(41.058879369581156, 7.609415306422682, -81.24448431236529)
-point.setReprojectionError(0.00031525759339263103)
+point.setColor(232.0, 216.0, 182.0);
+point.setCoordinates(41.058879369581156, 7.609415306422682, -81.24448431236529);
+point.setReprojectionError(0.00031525759339263103);
+
+
+_.times(1000).forEach(function(){
+  construction.addPoint()
+    .setColor(_.random(250), _.random(250), _.random(250))
+    .setCoordinates(_.random(0, 2), _.random(0, 10), _.random(0, -60))
+    .setReprojectionError(_.random(0.0001, 0.0009));
+})
 
 var meshJSON = mesh.generate();
 
