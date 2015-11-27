@@ -12,6 +12,14 @@ var camera = construction.addCamera("dji fc300x", {
   width: 4000
 })
 
+var shot = camera.addShot("dji_0667.jpg")
+shot.setCaptureTime(1438441529.0);
+shot.setGpsDop(15.0);
+shot.setGPSPosition(54.06667585288653, -58.86775726743872, 1.9994984893128276);
+shot.setOrientation(1); // todo rename
+shot.setRotation(-2.704549657889575, -1.5139182396282014, -0.01336689867768531);
+shot.setTranslation(21.696583947378134, -74.66030401921762, -1.4777540089824655);
+
 var meshJSON = mesh.generate();
 
 file.write(
