@@ -1,5 +1,7 @@
+var Rx = require('rx');
 var file = require('./util/file.js');
 var getShots = require('./shots-csv-reader.js');
+var getPoints = require('./sparse-points-reader.js');
 var Mesh = require('./mesh-model/mesh.js');
 
 var mesh = new Mesh();
@@ -28,12 +30,22 @@ function writeMeshToFile(meshJSON){
   );
 }
 
-getShots()
-  .forEach(function(shot){
+var shots = getShots();
+var points = getPoints();
+
+shots.forEach(function(shot){
     camera.addShot(shot.name)
       .setGPSPosition(shot.lat, shot.lon, shot.alt)
       .setRotation(shot.yaw, shot.pitch, shot.roll)
       .setTranslation(shot.x, shot.y, shot.z)
-  }, function(){}, function(){
-    writeMeshToFile(mesh.generate());
   });
+
+points.forEach(function(point){
+    construction.addPoint()
+      .setColor(point.r, point.g, point.b)
+      .setCoordinates(point.lat, point.lon, point.alt)
+  });
+
+Rx.Observable.zip([shots, points]).forEach(function(){}, function(){}, function(){
+  writeMeshToFile(mesh.generate());
+})
