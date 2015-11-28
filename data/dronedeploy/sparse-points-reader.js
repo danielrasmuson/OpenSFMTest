@@ -15,7 +15,7 @@ function translateRow(cells){
 
 function getPoints(){
   return Rx.Observable.create(function(observer){
-    file.read(__dirname+'/sparse_points.txt', function(data){
+    file.read(__dirname+'/sparse_points_testxyzpointcloud.txt', function(data){
       data.split('\n').forEach(function(row){
         var cells = row.split(' ');
         if (cells.length === 1) return; // blank line
