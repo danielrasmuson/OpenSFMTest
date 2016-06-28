@@ -37,13 +37,15 @@ shots.forEach(function(shot){
     camera.addShot(shot.name)
       .setGPSPosition(shot.lat, shot.lon, shot.alt)
       .setRotation(shot.yaw, shot.pitch, shot.roll)
+      // .setRotation(0, 0, 0)
+      // .setRotation(shot.x, shot.y, shot.z)
       .setTranslation(shot.x, shot.y, shot.z);
   });
 
 points.forEach(function(point){
     construction.addPoint()
       .setColor(point.r, point.g, point.b)
-      .setCoordinates(point.lat, point.lon, point.alt)
+      .setCoordinates(point.x, point.y, point.z)
       .setReprojectionError(0.00022505052104047338);
   });
 

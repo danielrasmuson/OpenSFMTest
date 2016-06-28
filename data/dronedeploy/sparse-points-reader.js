@@ -4,9 +4,9 @@ var file = require('./util/file.js');
 
 function translateRow(cells){
   return {
-    lat: parseFloat(cells[0]),
-    lon: parseFloat(cells[1]),
-    alt: parseFloat(cells[2]),
+    x: parseFloat(cells[0]),
+    y: parseFloat(cells[1]),
+    z: parseFloat(cells[2]),
     r: parseFloat(cells[3]),
     g: parseFloat(cells[4]),
     b: parseFloat(cells[5])
